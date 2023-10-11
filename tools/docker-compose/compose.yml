@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  bot:
+    build:
+      context: $PWD
+      dockerfile: wisdom-bot.Containerfile
+    container_name: ansible-code-bot
+    volumes:
+      - ./:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - 3000:3000
+    command: ["npm", "run", "dev"]
